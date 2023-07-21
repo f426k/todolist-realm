@@ -19,6 +19,7 @@
 		B2DC20E02A6A2CF50065503F /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC20DF2A6A2CF50065503F /* TaskCell.swift */; };
 		B2DC20E22A6A2E2E0065503F /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC20E12A6A2E2E0065503F /* CheckBoxView.swift */; };
 		B2DC20E52A6A31E40065503F /* TaskItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC20E42A6A31E40065503F /* TaskItemExtension.swift */; };
+		B2DC20E72A6A88490065503F /* DateScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC20E62A6A88490065503F /* DateScroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B2DC20DF2A6A2CF50065503F /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		B2DC20E12A6A2E2E0065503F /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		B2DC20E42A6A31E40065503F /* TaskItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemExtension.swift; sourceTree = "<group>"; };
+		B2DC20E62A6A88490065503F /* DateScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				B2DC20D82A6A14B20065503F /* FloatingButton.swift */,
 				B2DC20C62A6A11C30065503F /* TaskListView.swift */,
 				B2DC20DF2A6A2CF50065503F /* TaskCell.swift */,
+				B2DC20E62A6A88490065503F /* DateScroller.swift */,
 				B2DC20E12A6A2E2E0065503F /* CheckBoxView.swift */,
 				B2DC20E32A6A31C80065503F /* Model */,
 				B2DC20DB2A6A18C80065503F /* TaskEditView.swift */,
@@ -186,6 +189,7 @@
 				B2DC20D92A6A14B20065503F /* FloatingButton.swift in Sources */,
 				B2DC20E22A6A2E2E0065503F /* CheckBoxView.swift in Sources */,
 				B2DC20E02A6A2CF50065503F /* TaskCell.swift in Sources */,
+				B2DC20E72A6A88490065503F /* DateScroller.swift in Sources */,
 				B2DC20DC2A6A18C80065503F /* TaskEditView.swift in Sources */,
 				B2DC20C52A6A11C30065503F /* TodoListAppApp.swift in Sources */,
 				B2DC20D12A6A11C40065503F /* TodoListApp.xcdatamodeld in Sources */,
