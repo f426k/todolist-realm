@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7622E8A42A6AD3D800EA21CE /* TaskFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7622E8A32A6AD3D800EA21CE /* TaskFilter.swift */; };
 		B2DC20C52A6A11C30065503F /* TodoListAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC20C42A6A11C30065503F /* TodoListAppApp.swift */; };
 		B2DC20C72A6A11C30065503F /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC20C62A6A11C30065503F /* TaskListView.swift */; };
 		B2DC20C92A6A11C40065503F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2DC20C82A6A11C40065503F /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7622E8A32A6AD3D800EA21CE /* TaskFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFilter.swift; sourceTree = "<group>"; };
 		B2DC20C12A6A11C30065503F /* TodoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DC20C42A6A11C30065503F /* TodoListAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAppApp.swift; sourceTree = "<group>"; };
 		B2DC20C62A6A11C30065503F /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				B2DC20CD2A6A11C40065503F /* Persistence.swift */,
 				B2DC20E42A6A31E40065503F /* TaskItemExtension.swift */,
+				7622E8A32A6AD3D800EA21CE /* TaskFilter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				B2DC20E52A6A31E40065503F /* TaskItemExtension.swift in Sources */,
 				B2DC20CE2A6A11C40065503F /* Persistence.swift in Sources */,
 				B2DC20C72A6A11C30065503F /* TaskListView.swift in Sources */,
+				7622E8A42A6AD3D800EA21CE /* TaskFilter.swift in Sources */,
 				B2DC20D92A6A14B20065503F /* FloatingButton.swift in Sources */,
 				B2DC20E22A6A2E2E0065503F /* CheckBoxView.swift in Sources */,
 				B2DC20E02A6A2CF50065503F /* TaskCell.swift in Sources */,
