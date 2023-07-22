@@ -48,6 +48,7 @@ struct TaskEditView: View {
             {
                 Toggle("Schedule Time", isOn: $scheduleTime)
                 DatePicker("Due Date", selection: $dueDate, displayedComponents: displayComps())
+                    .environment(\.locale, Locale(identifier: "ja_JP"))
             }
 
             if selectedTaskItem?.isCompleted() ?? false{
@@ -65,6 +66,7 @@ struct TaskEditView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
+        .navigationTitle("Task Detail")
     }
 
     func displayComps() -> DatePickerComponents{

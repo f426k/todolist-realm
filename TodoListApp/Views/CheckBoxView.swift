@@ -19,6 +19,9 @@ struct CheckBoxView: View {
                     if !passedTaskItem.isCompleted(){
                         passedTaskItem.completeDate = Date()
                         dateHolder.saveContext(viewContext)
+                    } else {
+                        passedTaskItem.completeDate = nil
+                        dateHolder.saveContext(viewContext)
                     }
                 }
             }
