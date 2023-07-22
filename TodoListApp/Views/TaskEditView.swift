@@ -64,7 +64,16 @@ struct TaskEditView: View {
                 Button("Save", action: saveAction)
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
+                
+            if selectedTaskItem != nil{
+                Button("Delete", action: deleteAction)
+                    .font(.headline)
+                    .foregroundColor(.red)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
+            
+
         }
         .navigationTitle("Task Detail")
     }
@@ -83,6 +92,14 @@ struct TaskEditView: View {
             selectedTaskItem?.name = name
             selectedTaskItem?.dueDate = dueDate
             selectedTaskItem?.scheduleTime = scheduleTime
+
+            dateHolder.saveContext(viewContext)
+            self.presentationMode.wrappedValue.dismiss()
+        }
+    }
+    func deleteAction(){
+        withAnimation{
+            viewContext.delete(selectedTaskItem!)
 
             dateHolder.saveContext(viewContext)
             self.presentationMode.wrappedValue.dismiss()
