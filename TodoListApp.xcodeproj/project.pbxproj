@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7622E8A42A6AD3D800EA21CE /* TaskFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7622E8A32A6AD3D800EA21CE /* TaskFilter.swift */; };
+		B283CF932A7B297000441DC9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B283CF922A7B297000441DC9 /* Task.swift */; };
 		B2DC20C52A6A11C30065503F /* TodoListAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC20C42A6A11C30065503F /* TodoListAppApp.swift */; };
 		B2DC20C72A6A11C30065503F /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC20C62A6A11C30065503F /* TaskListView.swift */; };
 		B2DC20C92A6A11C40065503F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2DC20C82A6A11C40065503F /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		32892E8DCAA4DB3D933431CF /* Pods-TodoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoListApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoListApp/Pods-TodoListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3FFC46462D55F972623A61E5 /* Pods_TodoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7622E8A32A6AD3D800EA21CE /* TaskFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFilter.swift; sourceTree = "<group>"; };
+		B283CF922A7B297000441DC9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B2DC20C12A6A11C30065503F /* TodoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DC20C42A6A11C30065503F /* TodoListAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAppApp.swift; sourceTree = "<group>"; };
 		B2DC20C62A6A11C30065503F /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -64,7 +66,6 @@
 				32892E8DCAA4DB3D933431CF /* Pods-TodoListApp.debug.xcconfig */,
 				24C993E53861E0AAADBF279C /* Pods-TodoListApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -76,9 +77,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B283CF8F2A7B28E000441DC9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B283CF902A7B291600441DC9 /* Realm */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B283CF902A7B291600441DC9 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				B283CF912A7B295400441DC9 /* Entities */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		B283CF912A7B295400441DC9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B283CF922A7B297000441DC9 /* Task.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B283CF942A7B383F00441DC9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B283CF952A7B384900441DC9 /* Model */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B283CF952A7B384900441DC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B283CF962A7B385000441DC9 /* Services */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B283CF962A7B385000441DC9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B2DC20B82A6A11C30065503F = {
 			isa = PBXGroup;
 			children = (
+				B283CF8F2A7B28E000441DC9 /* Models */,
 				B2DC20C32A6A11C30065503F /* TodoListApp */,
 				B2DC20C22A6A11C30065503F /* Products */,
 				42DBBE3510FE2BF6892472BD /* Pods */,
@@ -97,6 +146,7 @@
 		B2DC20C32A6A11C30065503F /* TodoListApp */ = {
 			isa = PBXGroup;
 			children = (
+				B283CF942A7B383F00441DC9 /* Classes */,
 				B2DC20C42A6A11C30065503F /* TodoListAppApp.swift */,
 				B2DC20DA2A6A18A50065503F /* Views */,
 				B2DC20C82A6A11C40065503F /* Assets.xcassets */,
@@ -264,6 +314,7 @@
 				B2DC20E02A6A2CF50065503F /* TaskCell.swift in Sources */,
 				B2DC20E72A6A88490065503F /* DateScroller.swift in Sources */,
 				B2DC20DC2A6A18C80065503F /* TaskEditView.swift in Sources */,
+				B283CF932A7B297000441DC9 /* Task.swift in Sources */,
 				B2DC20C52A6A11C30065503F /* TodoListAppApp.swift in Sources */,
 				B2DC20D12A6A11C40065503F /* TodoListApp.xcdatamodeld in Sources */,
 			);
