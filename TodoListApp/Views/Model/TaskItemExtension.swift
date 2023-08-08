@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension TaskItem{
+extension Task{
     func isCompleted() -> Bool{
         return completeDate != nil
     }

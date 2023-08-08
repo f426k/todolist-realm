@@ -8,8 +8,11 @@
 import Foundation
 import RealmSwift
 
-struct TaskService {
+public class TaskService {
+    static let shared = TaskService(configuration: .defaultConfiguration)
     private let configuration: Realm.Configuration
+
+    let calendar: Calendar = Calendar.current
 
     init(configuration: Realm.Configuration) {
         self.configuration = configuration
@@ -19,16 +22,46 @@ struct TaskService {
         let realm = try! Realm(configuration: configuration)
         return realm.objects(Task.self)
     }
-    func createTask(name: String, desc: String, scheduleTime: Bool, dueDate: Date) throws {
+    
+    func createTask(name: String, desc: String, scheduleTime: Bool, dueDate: Date, id: String) throws {
+        let realm = try! Realm(configuration: configuration)
+        let taskItem: Task
+        if id == "" {
+            taskItem = Task()
+            taskItem.id = UUID().uuidString
+        } else {
+            taskItem = realm.object(ofType: Task.self, forPrimaryKey: id)!
+        }
+
+        try realm.write {
+            taskItem.name = name
+            taskItem.desc = desc
+            taskItem.created = Date()
+            taskItem.scheduleTime = scheduleTime
+            taskItem.dueDate = dueDate
+            realm.add(taskItem)
+        }
+    }
+
+    func deleteTask(id: String) throws {
+        let realm = try! Realm(configuration: configuration)
+        guard let taskItem = realm.object(ofType: Task.self, forPrimaryKey: id) else {
+            return
+        }
+        try realm.write {
+            realm.delete(taskItem)
+        }
+    }
+
+    func toggleCompleteTasks(task: Task) throws {
         let realm = try! Realm(configuration: configuration)
         try realm.write {
-            let task = Task()
-            task.name = name
-            task.desc = desc
-            task.created = Date()
-            task.scheduleTime = scheduleTime
-            task.dueDate = dueDate
-            realm.add(task)
+            if !task.isCompleted() {
+                task.completeDate = Date()
+            } else {
+                task.completeDate = nil
+            }
+            realm.add(task, update: .modified)
         }
     }
 }

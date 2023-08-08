@@ -15,7 +15,8 @@ struct FloatingButton: View {
             Spacer()
             HStack{
                 Spacer()
-                NavigationLink(destination: TaskEditView(passedTaskItem: nil, initialDate: Date()).environmentObject(dateHolder)){
+                NavigationLink(destination: TaskEditView(name: nil, desc: nil, dueDate: nil,scheduleTime: nil, id: nil, completeDate: nil, initialDate: Date())
+                    .environmentObject(dateHolder)){
                     Text("+ New Task")
                         .font(.headline)
                 }

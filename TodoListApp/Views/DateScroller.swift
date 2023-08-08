@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DateScroller: View {
     @EnvironmentObject var dateHolder: DateHolder
-    @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
         HStack{
@@ -41,12 +40,12 @@ struct DateScroller: View {
 
     func moveBack(){
         withAnimation{
-            dateHolder.moveDate(-1, viewContext)
+            dateHolder.moveDate(-1)
         }
     }
     func moveForward(){
         withAnimation{
-            dateHolder.moveDate(1, viewContext)
+            dateHolder.moveDate(1)
         }
     }
 }

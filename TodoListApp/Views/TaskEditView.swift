@@ -9,28 +9,30 @@ import SwiftUI
 
 struct TaskEditView: View {
     @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
-    @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dateHolder: DateHolder
 
-
-    @State var selectedTaskItem: TaskItem?
     @State var name: String
     @State var desc: String
     @State var dueDate: Date
     @State var scheduleTime: Bool
+    var completeDate: Date?
+    var id: String
 
-    init(passedTaskItem:TaskItem?,initialDate:Date){
-        if let taskItem = passedTaskItem{
-            _selectedTaskItem = State(initialValue: taskItem)
-            _name = State(initialValue: taskItem.name ?? "")
-            _desc = State(initialValue: taskItem.desc ?? "")
-            _dueDate = State(initialValue: taskItem.dueDate ?? initialDate)
-            _scheduleTime = State(initialValue: taskItem.scheduleTime)
-        }else{
+    init(name: String?, desc:String?, dueDate:Date?, scheduleTime:Bool?, id:String?, completeDate:Date?, initialDate: Date){
+        if id != nil {
+            _name = State(initialValue: name ?? "")
+            _desc = State(initialValue: desc ?? "")
+            _dueDate = State(initialValue: dueDate ?? initialDate)
+            _scheduleTime = State(initialValue: scheduleTime ?? false)
+            self.id = id ?? ""
+            self.completeDate = completeDate ?? nil
+        } else {
             _name = State(initialValue: "")
             _desc = State(initialValue: "")
             _dueDate = State(initialValue: initialDate)
             _scheduleTime = State(initialValue: false)
+            self.id = ""
+            self.completeDate =  nil
         }
     }
 
@@ -51,29 +53,27 @@ struct TaskEditView: View {
                     .environment(\.locale, Locale(identifier: "ja_JP"))
             }
 
-            if selectedTaskItem?.isCompleted() ?? false{
+            if completeDate != nil {
                 Section(header: Text("Completed"))
                 {
-                    Text(selectedTaskItem?.completeDate?.formatted(date: .abbreviated, time: .shortened) ?? "")
+                    Text(completeDate?.formatted(date: .abbreviated, time: .shortened) ?? "")
                         .foregroundColor(.green)
                 }
             }
 
             Section()
             {
-                Button("Save", action: saveAction)
+                Button("Save", action: {try! saveAction()})
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
                 
-            if selectedTaskItem != nil{
-                Button("Delete", action: deleteAction)
+            if id != "" {
+                Button("Delete", action: {try! deleteAction()})
                     .font(.headline)
                     .foregroundColor(.red)
                     .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
-            
-
         }
         .navigationTitle("Task Detail")
     }
@@ -82,33 +82,21 @@ struct TaskEditView: View {
         return scheduleTime ? [.hourAndMinute, .date]: [.date]
     }
 
-    func saveAction(){
-        withAnimation{
-            if selectedTaskItem == nil{
-                selectedTaskItem = TaskItem(context: viewContext)
-            }
-
-            selectedTaskItem?.created = Date()
-            selectedTaskItem?.name = name
-            selectedTaskItem?.dueDate = dueDate
-            selectedTaskItem?.scheduleTime = scheduleTime
-
-            dateHolder.saveContext(viewContext)
-            self.presentationMode.wrappedValue.dismiss()
-        }
+    func saveAction() throws {
+        try TaskService.shared.createTask(name: name, desc: desc, scheduleTime: scheduleTime, dueDate: dueDate, id: id)
+        self.presentationMode.wrappedValue.dismiss()
+        dateHolder.refreshTaskItems()
     }
-    func deleteAction(){
-        withAnimation{
-            viewContext.delete(selectedTaskItem!)
 
-            dateHolder.saveContext(viewContext)
-            self.presentationMode.wrappedValue.dismiss()
-        }
+    func deleteAction() throws {
+        try! TaskService.shared.deleteTask(id: id)
+        self.presentationMode.wrappedValue.dismiss()
+        dateHolder.refreshTaskItems()
     }
 }
 
 struct TaskEditView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskEditView(passedTaskItem: TaskItem(), initialDate: Date())
+        TaskEditView(name: "test", desc: "aaaa", dueDate: Date(), scheduleTime: false, id: "", completeDate: nil, initialDate: Date())
     }
 }

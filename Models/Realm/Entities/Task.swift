@@ -8,11 +8,12 @@
 import Foundation
 import RealmSwift
 
-public class Task: Object {
-    @Persisted public var name = ""
-    @Persisted public var desc = ""
-    @Persisted public var created: Date
+public class Task: Object, Identifiable {
+    @Persisted (primaryKey:true)  public var id = UUID().uuidString
+    @Persisted public var name: String?
+    @Persisted public var desc: String?
+    @Persisted public var created: Date = Date()
     @Persisted public var completeDate: Date?
-    @Persisted public var dueDate: Date
+    @Persisted public var dueDate: Date?
     @Persisted public var scheduleTime: Bool = false
 }

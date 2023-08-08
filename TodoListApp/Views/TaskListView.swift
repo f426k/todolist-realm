@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import CoreData
+import RealmSwift
 
 struct TaskListView: View {
     @EnvironmentObject var dateHolder: DateHolder
-    @Environment(\.managedObjectContext) private var viewContext
-    
     @State var selectedFilter = TaskFilter.NonCompleted
 
     var body: some View {
@@ -23,12 +21,25 @@ struct TaskListView: View {
                 ZStack{
                     List {
                         ForEach(filteredTaskItems()) { taskItem in
-                            NavigationLink(destination: TaskEditView(passedTaskItem: taskItem, initialDate: taskItem.dueDate!).environmentObject(dateHolder)) {
-                                TaskCell(passedTaskItem: taskItem)
-                                    .environmentObject(dateHolder)
-                            }
+                            NavigationLink(destination:
+                                            TaskEditView(
+                                                name: taskItem.name,
+                                                desc: taskItem.desc, dueDate: taskItem.dueDate,
+                                                scheduleTime: taskItem.scheduleTime,
+                                                id: taskItem.id,
+                                                completeDate: taskItem.completeDate,
+                                                initialDate: taskItem.dueDate!
+                                            )
+                                                .environmentObject(dateHolder)) {
+                                                    TaskCell(passedTaskItem: taskItem)
+                                                        .environmentObject(dateHolder)
+                                                }
                         }
-                        .onDelete(perform: deleteItems)
+//                        .onDelete {IndexSet in
+//                            withAnimation {
+//                                filteredTaskItems().remove(atOffsets: IndexSet)
+//                            }
+//                        }
                     }
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {
@@ -47,8 +58,8 @@ struct TaskListView: View {
             .navigationTitle("To Do List")
         }
     }
-    
-    private func filteredTaskItems() -> [TaskItem]{
+
+    private func filteredTaskItems() -> [Task] {
         if selectedFilter == TaskFilter.Completed{
             return dateHolder.taskItems.filter{$0.isCompleted()}
         }
@@ -58,17 +69,7 @@ struct TaskListView: View {
         if selectedFilter == TaskFilter.OverDue{
             return dateHolder.taskItems.filter{$0.isOverdue()}
         }
-        
         return dateHolder.taskItems
-    }
-
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { filteredTaskItems()[$0] }.forEach(viewContext.delete)
-
-            dateHolder.saveContext(viewContext)
-        }
     }
 }
 
