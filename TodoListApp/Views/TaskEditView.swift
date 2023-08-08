@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskEditView: View {
     @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
-    @EnvironmentObject var dateHolder: DateHolder
+    var dateHolder: DateHolder
 
     @State var name: String
     @State var desc: String
@@ -18,7 +18,7 @@ struct TaskEditView: View {
     var completeDate: Date?
     var id: String
 
-    init(name: String?, desc:String?, dueDate:Date?, scheduleTime:Bool?, id:String?, completeDate:Date?, initialDate: Date){
+    init(name: String?, desc:String?, dueDate:Date?, scheduleTime:Bool?, id:String?, completeDate:Date?, initialDate: Date, dateHolder: DateHolder){
         if id != nil {
             _name = State(initialValue: name ?? "")
             _desc = State(initialValue: desc ?? "")
@@ -26,6 +26,7 @@ struct TaskEditView: View {
             _scheduleTime = State(initialValue: scheduleTime ?? false)
             self.id = id ?? ""
             self.completeDate = completeDate ?? nil
+            self.dateHolder = dateHolder
         } else {
             _name = State(initialValue: "")
             _desc = State(initialValue: "")
@@ -33,6 +34,7 @@ struct TaskEditView: View {
             _scheduleTime = State(initialValue: false)
             self.id = ""
             self.completeDate =  nil
+            self.dateHolder = dateHolder
         }
     }
 
@@ -89,14 +91,14 @@ struct TaskEditView: View {
     }
 
     func deleteAction() throws {
-        try! TaskService.shared.deleteTask(id: id)
-        self.presentationMode.wrappedValue.dismiss()
+        try TaskService.shared.deleteTask(id: id)
         dateHolder.refreshTaskItems()
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct TaskEditView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskEditView(name: "test", desc: "aaaa", dueDate: Date(), scheduleTime: false, id: "", completeDate: nil, initialDate: Date())
+        TaskEditView(name: "test", desc: "aaaa", dueDate: Date(), scheduleTime: false, id: "", completeDate: nil, initialDate: Date(), dateHolder: DateHolder())
     }
 }

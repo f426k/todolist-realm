@@ -53,15 +53,18 @@ public class TaskService {
         }
     }
 
-    func toggleCompleteTasks(task: Task) throws {
+    func toggleCompleteTasks(id: String) throws {
         let realm = try! Realm(configuration: configuration)
+        guard let taskItem = realm.object(ofType: Task.self, forPrimaryKey: id) else {
+            return
+        }
         try realm.write {
-            if !task.isCompleted() {
-                task.completeDate = Date()
+            if !taskItem.isCompleted() {
+                taskItem.completeDate = Date()
             } else {
-                task.completeDate = nil
+                taskItem.completeDate = nil
             }
-            realm.add(task, update: .modified)
+            realm.add(taskItem, update: .modified)
         }
     }
 }
