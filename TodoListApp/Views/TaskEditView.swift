@@ -80,7 +80,7 @@ struct TaskEditView: View {
         .navigationTitle("Task Detail")
     }
 
-    func displayComps() -> DatePickerComponents{
+    func displayComps() -> DatePickerComponents {
         return scheduleTime ? [.hourAndMinute, .date]: [.date]
     }
 

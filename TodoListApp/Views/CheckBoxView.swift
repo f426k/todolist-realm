@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CheckBoxView: View {
-//    @Environment(\.managedObjectContext) private var viewContext
     var dateHolder: DateHolder
-//    @ObservedObject var passedTaskItem: Task
 
     var completeDate: Date?
     var id: String

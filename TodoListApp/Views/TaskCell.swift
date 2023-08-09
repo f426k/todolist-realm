@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TaskCell: View {
     var dateHolder: DateHolder
-//    @ObservedObject var passedTaskItem: Task
 
     var name: String?
     var completeDate: Date?

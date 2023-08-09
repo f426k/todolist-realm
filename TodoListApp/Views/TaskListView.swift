@@ -43,7 +43,7 @@ struct TaskListView: View {
                                     dateHolder: dateHolder
                                 )
                                     
-                            }
+                            }.id(UUID())
                         }
 //                        .onDelete {IndexSet in
 //                            withAnimation {
@@ -53,7 +53,7 @@ struct TaskListView: View {
                     }
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {
-                            Picker("", selection: $selectedFilter.animation()){
+                            Picker("", selection: $selectedFilter.animation()) {
                                 ForEach(TaskFilter.allFilters,id:\.self){
                                     filter in
                                     Text(filter.rawValue)

@@ -14,8 +14,8 @@
             filePath = "TodoListApp/Views/CheckBoxView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "previews"
             landmarkType = "24">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "TodoListApp/Views/CheckBoxView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -248,8 +248,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "init(name:completeDate:id:scheduleTime:dueDate:dateHolder:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -264,8 +264,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "init(name:completeDate:id:scheduleTime:dueDate:dateHolder:)"
             landmarkType = "7">
             <Locations>
@@ -312,8 +312,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "init(name:completeDate:id:scheduleTime:dueDate:dateHolder:)"
             landmarkType = "7">
             <Locations>
@@ -360,8 +360,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "init(name:completeDate:id:scheduleTime:dueDate:dateHolder:)"
             landmarkType = "7">
             <Locations>
@@ -408,8 +408,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "init(name:completeDate:id:scheduleTime:dueDate:dateHolder:)"
             landmarkType = "7">
             <Locations>
@@ -456,8 +456,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "init(name:completeDate:id:scheduleTime:dueDate:dateHolder:)"
             landmarkType = "7">
             <Locations>
@@ -504,8 +504,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "init(name:completeDate:id:scheduleTime:dueDate:dateHolder:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -520,8 +520,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -568,8 +568,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -584,8 +584,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -600,8 +600,8 @@
             filePath = "TodoListApp/Views/TaskCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
