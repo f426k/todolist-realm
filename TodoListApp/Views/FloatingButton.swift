@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct FloatingButton: View {
-    @EnvironmentObject var dateHolder: DateHolder
+    var dateHolder: DateHolder
 
     var body: some View {
         VStack{
             Spacer()
             HStack{
                 Spacer()
-                NavigationLink(destination: TaskEditView(name: nil, desc: nil, dueDate: nil,scheduleTime: nil, id: nil, completeDate: nil, initialDate: Date())
+                NavigationLink(destination: TaskEditView(name: nil, desc: nil, dueDate: nil,scheduleTime: nil, id: nil, completeDate: nil, initialDate: Date(),dateHolder: dateHolder)
                     .environmentObject(dateHolder)){
                     Text("+ New Task")
                         .font(.headline)
@@ -33,6 +33,6 @@ struct FloatingButton: View {
 
 struct FloatingButton_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingButton()
+        FloatingButton(dateHolder: DateHolder())
     }
 }

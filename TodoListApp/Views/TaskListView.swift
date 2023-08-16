@@ -24,16 +24,26 @@ struct TaskListView: View {
                             NavigationLink(destination:
                                             TaskEditView(
                                                 name: taskItem.name,
-                                                desc: taskItem.desc, dueDate: taskItem.dueDate,
+                                                desc: taskItem.desc,
+                                                dueDate: taskItem.dueDate,
                                                 scheduleTime: taskItem.scheduleTime,
                                                 id: taskItem.id,
                                                 completeDate: taskItem.completeDate,
-                                                initialDate: taskItem.dueDate!
+                                                initialDate: taskItem.dueDate!,
+                                                dateHolder: dateHolder
                                             )
-                                                .environmentObject(dateHolder)) {
-                                                    TaskCell(passedTaskItem: taskItem)
-                                                        .environmentObject(dateHolder)
-                                                }
+                            )
+                            {
+                                TaskCell(
+                                    name: taskItem.name,
+                                    completeDate: taskItem.completeDate,
+                                    id: taskItem.id,
+                                    scheduleTime: taskItem.scheduleTime,
+                                    dueDate: taskItem.dueDate,
+                                    dateHolder: dateHolder
+                                )
+                                    
+                            }.id(UUID())
                         }
 //                        .onDelete {IndexSet in
 //                            withAnimation {
@@ -43,7 +53,7 @@ struct TaskListView: View {
                     }
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {
-                            Picker("", selection: $selectedFilter.animation()){
+                            Picker("", selection: $selectedFilter.animation()) {
                                 ForEach(TaskFilter.allFilters,id:\.self){
                                     filter in
                                     Text(filter.rawValue)
@@ -51,8 +61,7 @@ struct TaskListView: View {
                             }
                         }
                     }
-                    FloatingButton()
-                        .environmentObject(dateHolder)
+                    FloatingButton(dateHolder: dateHolder)
                 }
             }
             .navigationTitle("To Do List")
@@ -60,16 +69,17 @@ struct TaskListView: View {
     }
 
     private func filteredTaskItems() -> [Task] {
+        let result = dateHolder.taskItems.filter{!$0.isInvalidated}
         if selectedFilter == TaskFilter.Completed{
-            return dateHolder.taskItems.filter{$0.isCompleted()}
+            return result.filter{$0.isCompleted()}
         }
         if selectedFilter == TaskFilter.NonCompleted{
-            return dateHolder.taskItems.filter{!$0.isCompleted()}
+            return result.filter{!$0.isCompleted()}
         }
         if selectedFilter == TaskFilter.OverDue{
-            return dateHolder.taskItems.filter{$0.isOverdue()}
+            return result.filter{$0.isOverdue()}
         }
-        return dateHolder.taskItems
+        return result
     }
 }
 
